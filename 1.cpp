@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
 class Array {
 private:
-    vector<double> data;
+    std::vector<double> data;
 
 public:
     // Конструктор класса Array, принимающий размерность массива
@@ -13,17 +12,17 @@ public:
     // Метод для заполнения массива элементами
     void fillArray() {
         for (int i = 0; i < data.size(); ++i) {
-            cin >> data[i];
+            std::cin >> data[i];
         }
     }
 
     // Метод для вывода элементов массива
     void printArray(const char* name) const {
-        cout << name << "= ";
+        std::cout << name << "= ";
         for (double num : data) {
-            cout << num << " ";
+            std::cout << num << " ";
         }
-        cout << endl;
+        std::cout << std::endl;
     }
 
     // Перегрузка операторов для арифметических операций с массивами
@@ -57,7 +56,7 @@ public:
             if (other.data[i] != 0) {
                 result.data[i] = data[i] / other.data[i];
             } else {
-                cerr << "Ошибка: деление на ноль!" << endl;
+                std::cerr << "Ошибка: деление на ноль!" << std::endl;
                 exit(1);
             }
         }
@@ -84,21 +83,21 @@ public:
 
 int main() {
     int size;
-    //cout << "Введите размерность массивов: ";
-    cin >> size;
+    //std::cout << "Введите размерность массивов: ";
+    std::cin >> size;
 
     Array array1(size);
     Array array2(size);
 
-    //cout << "Введите элементы массива 1:" << endl;
+    //std::cout << "Введите элементы массива 1:" << std::endl;
     array1.fillArray();
 
-    //cout << "Введите элементы массива 2:" << endl;
+    //std::cout << "Введите элементы массива 2:" << std::endl;
     array2.fillArray();
 
     double scalar;
-    //cout << "Введите скалярную величину: ";
-    cin >> scalar;
+    //std::cout << "Введите скалярную величину: ";
+    std::cin >> scalar;
 
     array1.printArray("massiv1");
     array2.printArray("massiv2");
@@ -124,9 +123,9 @@ int main() {
 
     // Проверка на равенство и неравенство
     if (array1 == array2) {
-        cout << "massivy ravny" << endl;
+        std::cout << "massivy ravny" << std::endl;
     } else {
-        cout << "massivy ne ravny" << endl;
+        std::cout << "massivy ne ravny" << std::endl;
     }
 
     return 0;
